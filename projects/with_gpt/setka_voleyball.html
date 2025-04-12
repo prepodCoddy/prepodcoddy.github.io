@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запись в школу волейбола</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        .form-row .form-group {
+            flex: 1;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .required:after {
+            content: " *";
+            color: red;
+        }
+        .note {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Запись в школу волейбола</h1>
+        
+        <form id="volleyballForm" action="#" method="POST">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="childName" class="required">ФИО ребенка</label>
+                    <input type="text" id="childName" name="childName" required>
+                </div>
+                <div class="form-group">
+                    <label for="birthDate" class="required">Дата рождения</label>
+                    <input type="date" id="birthDate" name="birthDate" required>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="gender" class="required">Пол</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Выберите пол</option>
+                        <option value="male">Мужской</option>
+                        <option value="female">Женский</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="group" class="required">Возрастная группа</label>
+                    <select id="group" name="group" required>
+                        <option value="">Выберите группу</option>
+                        <option value="7-9">7-9 лет (начальная подготовка)</option>
+                        <option value="10-12">10-12 лет (базовая подготовка)</option>
+                        <option value="13-15">13-15 лет (углубленная подготовка)</option>
+                        <option value="16-18">16-18 лет (спортивное совершенствование)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="parentName" class="required">ФИО родителя/опекуна</label>
+                <input type="text" id="parentName" name="parentName" required>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="phone" class="required">Телефон для связи</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+7 (XXX) XXX-XX-XX">
+                </div>
+                <div class="form-group">
+                    <label for="email">Электронная почта</label>
+                    <input type="email" id="email" name="email">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="address">Адрес проживания</label>
+                <input type="text" id="address" name="address">
+                <p class="note">Указывается для формирования групп по территориальному признаку</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="experience">Опыт занятий волейболом</label>
+                <select id="experience" name="experience">
+                    <option value="none">Нет опыта</option>
+                    <option value="school">Занимался(ась) в школе</option>
+                    <option value="section">Занимался(ась) в секции</option>
+                    <option value="competitions">Участвовал(а) в соревнованиях</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="health">Особенности здоровья</label>
+                <textarea id="health" name="health" rows="3" placeholder="Укажите, если есть ограничения по здоровью или особые рекомендации врачей"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="schedule">Предпочтительное время занятий</label>
+                <select id="schedule" name="schedule">
+                    <option value="any">Любое время</option>
+                    <option value="morning">Утро (9:00-12:00)</option>
+                    <option value="afternoon">День (14:00-17:00)</option>
+                    <option value="evening">Вечер (18:00-21:00)</option>
+                    <option value="weekend">Выходные дни</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="agreement" required> 
+                    Я согласен(а) на обработку персональных данных и ознакомлен(а) с <a href="#">правилами школы</a>
+                </label>
+            </div>
+            
+            <button type="submit">Отправить заявку</button>
+        </form>
+    </div>
+    
+    <script>
+        document.getElementById('volleyballForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо за вашу заявку! Мы свяжемся с вами в ближайшее время.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
